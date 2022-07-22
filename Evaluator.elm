@@ -1,15 +1,13 @@
-module Poker.Evaluator
+module Poker.Evaluator exposing (evaluation)
 
 import Poker.Evaluators.SKEval as SK
 
 type Evaluator 
-	= SKEval
+        = SKEval
 
 
 evaluation : Evaluator -> List Int -> Maybe Int
 evaluation evaluator cards =
-	case evaluator of
-		SKEval ->
-			SK.eval cards
-
+       case evaluator of
+               SKEval -> SK.eval cards
 
