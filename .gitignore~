@@ -3,6 +3,8 @@ elm-stuff
 # elm-repl generated files
 repl-temp-*
 # temporary files
-*~
+.~
 # elm changed files
+.elm~
 .elm.swp
+.elm.un~
