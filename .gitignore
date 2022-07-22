@@ -4,3 +4,4 @@ elm-stuff
 repl-temp-*
 # elm changed files
 .elm.swp
+# I tried to supress backup files in the global gitignore
