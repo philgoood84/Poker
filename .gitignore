@@ -1,7 +1,0 @@
-# elm-package generated files
-elm-stuff
-# elm-repl generated files
-repl-temp-*
-# elm changed files
-.elm.swp
-# I tried to supress backup files in global gitignore
