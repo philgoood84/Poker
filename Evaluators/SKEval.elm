@@ -43,15 +43,12 @@ findIn : Array Int -> Int -> Maybe Int
 findIn array index =
         Array.get index array
                 
-<<<<<<< HEAD
-=======
 type Suit
         = Spade
         | Heart 
         | Diamond 
         | Club
 
->>>>>>> b4aec97e5646258d653cc25c2a3512207b017126
 getSuit : Suit -> Int
 getSuit suit =
         case suit of
@@ -59,8 +56,6 @@ getSuit suit =
                 Heart -> 1
                 Diamond -> 8
                 Club -> 57
-<<<<<<< HEAD
-=======
 
 type Face
         = Two 
@@ -76,7 +71,6 @@ type Face
         | Queen
         | King
         | Ace
->>>>>>> b4aec97e5646258d653cc25c2a3512207b017126
 
 getFace : Face -> Int
 getFace face =
@@ -128,7 +122,6 @@ rankOffsetShift =
 rankHashMod : Int
 rankHashMod =
         (Bitwise.shiftLeftBy rankOffsetShift 1) - 1
-<<<<<<< HEAD
 
 toSkCards : Card -> Int
 toSkCards (Card face suit) =
@@ -178,106 +171,7 @@ checkFlushKey key =
                  350 -> Just Club
                  399 -> Just Club
                  _ -> Nothing
-=======
         
-
-skCards : Array Int
-skCards =
-        Array.fromList
-        <|
-        [       
-                getFace Ace + (Bitwise.shiftLeftBy flushBitShift <| getSuit Spade) ,
-                getFace Ace + (Bitwise.shiftLeftBy flushBitShift <| getSuit Heart) ,
-                getFace Ace + (Bitwise.shiftLeftBy flushBitShift <| getSuit Diamond) ,
-                getFace Ace + (Bitwise.shiftLeftBy flushBitShift <| getSuit Club) ,
-                
-                getFace King + (Bitwise.shiftLeftBy flushBitShift <| getSuit Spade) ,
-                getFace King + (Bitwise.shiftLeftBy flushBitShift <| getSuit Heart) ,
-                getFace King + (Bitwise.shiftLeftBy flushBitShift <| getSuit Diamond) ,
-                getFace King + (Bitwise.shiftLeftBy flushBitShift <| getSuit Club) ,
-                
-                getFace Queen + (Bitwise.shiftLeftBy flushBitShift <| getSuit Spade) ,
-                getFace Queen + (Bitwise.shiftLeftBy flushBitShift <| getSuit Heart) ,
-                getFace Queen + (Bitwise.shiftLeftBy flushBitShift <| getSuit Diamond) ,
-                getFace Queen + (Bitwise.shiftLeftBy flushBitShift <| getSuit Club) ,
-                
-                getFace Jack + (Bitwise.shiftLeftBy flushBitShift <| getSuit Spade) ,
-                getFace Jack + (Bitwise.shiftLeftBy flushBitShift <| getSuit Heart) ,
-                getFace Jack + (Bitwise.shiftLeftBy flushBitShift <| getSuit Diamond) ,
-                getFace Jack + (Bitwise.shiftLeftBy flushBitShift <| getSuit Club) ,
-                
-                getFace Ten + (Bitwise.shiftLeftBy flushBitShift <| getSuit Spade) ,
-                getFace Ten + (Bitwise.shiftLeftBy flushBitShift <| getSuit Heart) ,
-                getFace Ten + (Bitwise.shiftLeftBy flushBitShift <| getSuit Diamond) ,
-                getFace Ten + (Bitwise.shiftLeftBy flushBitShift <| getSuit Club) ,
-                
-                getFace Nine + (Bitwise.shiftLeftBy flushBitShift <| getSuit Spade) ,
-                getFace Nine + (Bitwise.shiftLeftBy flushBitShift <| getSuit Heart) ,
-                getFace Nine + (Bitwise.shiftLeftBy flushBitShift <| getSuit Diamond) ,
-                getFace Nine + (Bitwise.shiftLeftBy flushBitShift <| getSuit Club) ,
-                
-                getFace Eight + (Bitwise.shiftLeftBy flushBitShift <| getSuit Spade) ,
-                getFace Eight + (Bitwise.shiftLeftBy flushBitShift <| getSuit Heart) ,
-                getFace Eight + (Bitwise.shiftLeftBy flushBitShift <| getSuit Diamond) ,
-                getFace Eight + (Bitwise.shiftLeftBy flushBitShift <| getSuit Club) ,
-        
-                getFace Seven + (Bitwise.shiftLeftBy flushBitShift <| getSuit Spade) ,
-                getFace Seven + (Bitwise.shiftLeftBy flushBitShift <| getSuit Heart) ,
-                getFace Seven + (Bitwise.shiftLeftBy flushBitShift <| getSuit Diamond) ,
-                getFace Seven + (Bitwise.shiftLeftBy flushBitShift <| getSuit Club) ,
-                
-                getFace Six + (Bitwise.shiftLeftBy flushBitShift <| getSuit Spade) ,
-                getFace Six + (Bitwise.shiftLeftBy flushBitShift <| getSuit Heart) ,
-                getFace Six + (Bitwise.shiftLeftBy flushBitShift <| getSuit Diamond) ,
-                getFace Six + (Bitwise.shiftLeftBy flushBitShift <| getSuit Club) ,
-                
-                getFace Five + (Bitwise.shiftLeftBy flushBitShift <| getSuit Spade) ,
-                getFace Five + (Bitwise.shiftLeftBy flushBitShift <| getSuit Heart) ,
-                getFace Five + (Bitwise.shiftLeftBy flushBitShift <| getSuit Diamond) ,
-                getFace Five + (Bitwise.shiftLeftBy flushBitShift <| getSuit Club) ,
-                
-                getFace Four + (Bitwise.shiftLeftBy flushBitShift <| getSuit Spade) ,
-                getFace Four + (Bitwise.shiftLeftBy flushBitShift <| getSuit Heart) ,
-                getFace Four + (Bitwise.shiftLeftBy flushBitShift <| getSuit Diamond) ,
-                getFace Four + (Bitwise.shiftLeftBy flushBitShift <| getSuit Club) ,
-                
-                getFace Three + (Bitwise.shiftLeftBy flushBitShift <| getSuit Spade) ,
-                getFace Three + (Bitwise.shiftLeftBy flushBitShift <| getSuit Heart) ,
-                getFace Three + (Bitwise.shiftLeftBy flushBitShift <| getSuit Diamond) ,
-                getFace Three + (Bitwise.shiftLeftBy flushBitShift <| getSuit Club) ,
-               
-                getFace Two + (Bitwise.shiftLeftBy flushBitShift <| getSuit Spade) ,
-                getFace Two + (Bitwise.shiftLeftBy flushBitShift <| getSuit Heart) ,
-                getFace Two + (Bitwise.shiftLeftBy flushBitShift <| getSuit Diamond) ,
-                getFace Two + (Bitwise.shiftLeftBy flushBitShift <| getSuit Club) 
-            ]
-
-flushCheck : Array Int 
-flushCheck =
-        Array.fromList <|
-                [
-                0, 0, 0, -1, -1, 1, 1, 1, 0, 0, -1, -1, -1, 1, 1, -1, 0, -1, -1, -1, -1, 1,
-                -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 2, 2,
-                2, -1, -1, -1, -1, -1, 2, 2, -1, -1, -1, -1, -1, -1, 2, 0, 0, -1, -1, -1, 1, 1,
-                -1, 0, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-                -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 2, 2, -1, -1, -1, -1, -1,
-                -1, 2, -1, -1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1, 1, -1, -1, -1, -1,
-                -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-                -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 2, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-                -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-                -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-                -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-                -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-                -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-                -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-                -1, 3, 3, 3, -1, -1, -1, -1, -1, 3, 3, -1, -1, -1, -1, -1, -1, 3, -1, -1,
-                -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-                -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 3, 3,
-                -1, -1, -1, -1, -1, -1, 3, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-                -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-                -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 3
-                ]
->>>>>>> b4aec97e5646258d653cc25c2a3512207b017126
 
 offsets : Array Int
 offsets =
@@ -5171,13 +5065,8 @@ flushRank = Array.fromList <|
 
 getKronecker : Suit -> Card -> Maybe Int
 getKronecker suit card =
-<<<<<<< HEAD
     Array.get (Suit.comparable suit) suitKronecker
     |> Maybe.andThen (Array.get (Card.comparable card))
-=======
-    Array.get suit suitKronecker
-    |> Maybe.andThen (Array.get card)
->>>>>>> b4aec97e5646258d653cc25c2a3512207b017126
 
 suitKronecker : Array (Array Int)
 suitKronecker =
