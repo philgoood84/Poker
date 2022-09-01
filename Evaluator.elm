@@ -18,6 +18,11 @@ evaluations board evaluator =
         foldl board evaluator (\(cards, mEval) data -> Maybe.withDefault data (Maybe.map ((Tuple.pair cards) >> List.singleton >> ((++) data)) mEval)) []
 
 
+evaluation : Evaluator -> List Int -> Maybe Int
+evaluation evaluator cards =
+       case evaluator of
+               SKEval -> SK.eval cards
+
 
 foldl : List Card -> Evaluator -> ((List Card, Maybe Int) -> a -> a) -> a -> a
 foldl board evaluator f start =

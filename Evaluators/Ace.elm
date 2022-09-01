@@ -8,3 +8,6 @@ eval cards =
 
 
 
+eval : List Int -> Maybe Int
+eval cards =
+        Nothing
