@@ -43,12 +43,6 @@ findIn : Array Int -> Int -> Maybe Int
 findIn array index =
         Array.get index array
                 
-type Suit
-        = Spade
-        | Heart 
-        | Diamond 
-        | Club
-
 getSuit : Suit -> Int
 getSuit suit =
         case suit of
@@ -56,21 +50,6 @@ getSuit suit =
                 Heart -> 1
                 Diamond -> 8
                 Club -> 57
-
-type Face
-        = Two 
-        | Three
-        | Four 
-        | Five
-        | Six
-        | Seven
-        | Eight
-        | Nine
-        | Ten
-        | Jack
-        | Queen
-        | King
-        | Ace
 
 getFace : Face -> Int
 getFace face =
